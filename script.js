@@ -1,17 +1,29 @@
 let gameOver = false
 let intervalID
+const stopwatchDisplay = document.querySelector("#timer")
 
 const stopwatch = () => {
   const start = Date.now();
+  displayTime(0)
   intervalID = setInterval(() => {
     // every second do a thing
     let seconds = Math.floor((Date.now() - start)/1000)
-    displayTime(seconds)
-  }, 1000);
+    let ms = Math.floor((Date.now() - start)/10)
+    displayTime(ms)
+  }, 10);
 }
 
 const displayTime = (elapsed) => {
-  console.log(elapsed)
+  // console.log(elapsed)
+  let seconds = (Math.floor(elapsed / 100))
+  let r = elapsed % 100
+  if (seconds < 10) {
+    seconds = "0" + seconds
+  }
+  if (r < 10) {
+    r = "0" + r
+  }
+  stopwatchDisplay.textContent = `${seconds}:${r}`
 }
 
 const stopTimer = () => {
@@ -57,11 +69,17 @@ const handleKeyPress = (e) => {
 
 
 document.getElementById("start-button").addEventListener("click", () => {
+  if(intervalID) {
+    clearInterval(intervalID)
+  }
   stopwatch();
   document.addEventListener("keyup", handleKeyPress);
 })
 
 document.getElementById("reset-button").addEventListener("click", () => {
+  if(intervalID) {
+    clearInterval(intervalID)
+  }
   document.querySelectorAll(".active").forEach((ele) => {
     ele.classList.remove("active");
   });
