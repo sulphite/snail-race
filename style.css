@@ -63,7 +63,7 @@ button:active {
   margin: 2em auto;
   text-align: center;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 10% auto;
 }
 
 .row {
@@ -160,4 +160,71 @@ button:active {
     opacity: 0%;
     font-size: 5rem;
   }
+}
+
+/* track */
+
+.snail-progress {
+  width: 80%;
+  margin: 50px auto;
+}
+
+/* remove default styling for range slider in all browsers */
+input[type=range] {
+  appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 90%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border */
+}
+
+input[type=range]::-ms-track {
+  width: 90%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+
+/* add my custom style for the slider */
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 90%;
+  height: 30px;
+  background-color: #cccccc52;
+  border-radius: 5px;
+}
+
+/* Customize the appearance of the thumb */
+#green::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+
+#red::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork2.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
 }
