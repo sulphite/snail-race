@@ -133,3 +133,31 @@ button:active {
   margin: 0 auto;
   text-align: right;
 }
+
+#countdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: 10rem;
+  padding: 30vh;
+  opacity: 50%;
+}
+
+.fade {
+  animation: 1s 1 forwards fade;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 50%;
+    font-size: 10rem;
+  }
+
+  100% {
+    opacity: 0%;
+    font-size: 5rem;
+  }
+}

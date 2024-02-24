@@ -1,6 +1,7 @@
-let gameOver = false
+let gameOver = true
 let intervalID
 const stopwatchDisplay = document.querySelector("#timer")
+const countdownDisplay = document.querySelector("#countdown")
 
 const stopwatch = () => {
   const start = Date.now();
@@ -37,7 +38,7 @@ const winCheck = (num) => {
     if (ele.classList.contains("active")) {
       gameOver = true;
       clearInterval(intervalID)
-      setTimeout(() => { window.alert(`${currentSnail} is the winner`) }, 100);
+      setTimeout(() => { window.alert(`${currentSnail} snail wins!!`) }, 100);
     }
   });
 };
@@ -61,13 +62,33 @@ const handleKeyPress = (e) => {
   };
 }
 
+const displayCountdown = (input) => {
+  countdownDisplay.textContent = input
+}
+
+// event listeners
+
+document.addEventListener("keyup", handleKeyPress);
 
 document.getElementById("start-button").addEventListener("click", () => {
-  if(intervalID) {
-    clearInterval(intervalID)
-  }
-  stopwatch();
-  document.addEventListener("keyup", handleKeyPress);
+  let count = 3
+  displayCountdown(count)
+  countdownDisplay.classList.remove("fade")
+  countdownInterval = setInterval(() => {
+    count--
+    displayCountdown(count)
+
+    if (count < 1) {
+      clearInterval(countdownInterval)
+      displayCountdown("GO!")
+      countdownDisplay.classList.add("fade")
+      if(intervalID) {
+        clearInterval(intervalID)
+      }
+      stopwatch();
+      gameOver = false;
+    }
+  }, 1000);
 })
 
 document.getElementById("reset-button").addEventListener("click", () => {
