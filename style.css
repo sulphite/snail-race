@@ -165,7 +165,7 @@ button:active {
 /* track */
 
 .snail-progress {
-  width: 80%;
+  width: 90%;
   margin: 50px auto;
 }
 
@@ -200,7 +200,8 @@ input[type=range]::-ms-track {
 input[type=range]::-webkit-slider-runnable-track {
   width: 90%;
   height: 30px;
-  background-color: #cccccc52;
+  /* background-color: #cccccc52; */
+  background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
   border-radius: 5px;
 }
 
@@ -210,6 +211,7 @@ input[type=range]::-webkit-slider-runnable-track {
   appearance: none;
   width: 150px;
   height: 150px;
+  /* background-color: #333; */
   background-image: url("images/Untitled_Artwork.png");
   background-size: cover;
   border: none;

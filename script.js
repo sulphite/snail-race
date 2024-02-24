@@ -1,5 +1,6 @@
 let gameOver = true
 let intervalID
+let raceInt
 const stopwatchDisplay = document.querySelector("#timer")
 
 const countdownDisplay = document.querySelector("#countdown")
@@ -12,31 +13,28 @@ const red = document.getElementById("red")
 let greenSpeed = 0
 let redSpeed = 0
 
-const greenInt = setInterval(() => {
-  green.value = parseInt(green.value) + greenSpeed
-  if (green.value >= 100) {
-    clearInterval(greenInt)
-    clearInterval(redInt)
-    gameOver = true;
-    clearInterval(intervalID)
-  }
-  if (greenSpeed > -1) {
-    greenSpeed--
-  }
-}, 100);
-
-const redInt = setInterval(() => {
-  red.value = parseInt(red.value) + redSpeed
-  if (red.value >= 100) {
-    clearInterval(greenInt)
-    clearInterval(redInt)
-    gameOver = true;
-    clearInterval(intervalID)
-  }
-  if (redSpeed > -1) {
-    redSpeed--
-  }
-}, 100);
+const startRace = () => {
+  raceInt = setInterval(() => {
+    green.value = parseInt(green.value) + greenSpeed
+    red.value = parseInt(red.value) + redSpeed
+    if (green.value >= 100) {
+      clearInterval(raceInt)
+      gameOver = true;
+      clearInterval(intervalID)
+    }
+    if (red.value >= 100) {
+      clearInterval(raceInt)
+      gameOver = true;
+      clearInterval(intervalID)
+    }
+    if (greenSpeed > -1) {
+      greenSpeed--
+    }
+    if (redSpeed > -1) {
+      redSpeed--
+    }
+  }, 100);
+}
 
 const stopwatch = () => {
   const start = Date.now();
@@ -59,21 +57,21 @@ const displayTime = (elapsed) => {
   stopwatchDisplay.textContent = `${seconds}:${remainder}`
 }
 
-const moveSnail = (snail) => {
-  snail.nextElementSibling.classList.add("active");
-  snail.classList.remove("active");
-};
+// const moveSnail = (snail) => {
+//   snail.nextElementSibling.classList.add("active");
+//   snail.classList.remove("active");
+// };
 
-const winCheck = (num) => {
-  const currentSnail = (num > 0) ? "red" : "green"
-  document.querySelectorAll(".space:last-child").forEach((ele) => {
-    if (ele.classList.contains("active")) {
-      gameOver = true;
-      clearInterval(intervalID)
-      setTimeout(() => { window.alert(`${currentSnail} snail wins!!`) }, 100);
-    }
-  });
-};
+// const winCheck = (num) => {
+//   const currentSnail = (num > 0) ? "red" : "green"
+//   document.querySelectorAll(".space:last-child").forEach((ele) => {
+//     if (ele.classList.contains("active")) {
+//       gameOver = true;
+//       clearInterval(intervalID)
+//       setTimeout(() => { window.alert(`${currentSnail} snail wins!!`) }, 100);
+//     }
+//   });
+// };
 
 const handleKeyPress = (e) => {
   if (gameOver) {
@@ -116,6 +114,7 @@ document.getElementById("start-button").addEventListener("click", () => {
         clearInterval(intervalID)
       }
       stopwatch();
+      startRace();
       gameOver = false;
     }
   }, 1000);
@@ -125,13 +124,15 @@ document.getElementById("reset-button").addEventListener("click", () => {
   if(intervalID) {
     clearInterval(intervalID)
   }
-  document.querySelectorAll(".active").forEach((ele) => {
-    ele.classList.remove("active");
-  });
-  document.querySelectorAll(".space:first-child").forEach((ele) => {
-    ele.classList.add("active");
-  });
+  // document.querySelectorAll(".active").forEach((ele) => {
+  //   ele.classList.remove("active");
+  // });
+  // document.querySelectorAll(".space:first-child").forEach((ele) => {
+  //   ele.classList.add("active");
+  // });
+  clearInterval(raceInt)
   gameOver = false;
   displayTime(0);
   green.value = 0
+  red.value = 0
 });
