@@ -1,7 +1,42 @@
 let gameOver = true
 let intervalID
 const stopwatchDisplay = document.querySelector("#timer")
+
 const countdownDisplay = document.querySelector("#countdown")
+const displayCountdown = (input) => {
+  countdownDisplay.textContent = input
+}
+
+const green = document.getElementById("green")
+const red = document.getElementById("red")
+let greenSpeed = 0
+let redSpeed = 0
+
+const greenInt = setInterval(() => {
+  green.value = parseInt(green.value) + greenSpeed
+  if (green.value >= 100) {
+    clearInterval(greenInt)
+    clearInterval(redInt)
+    gameOver = true;
+    clearInterval(intervalID)
+  }
+  if (greenSpeed > -1) {
+    greenSpeed--
+  }
+}, 100);
+
+const redInt = setInterval(() => {
+  red.value = parseInt(red.value) + redSpeed
+  if (red.value >= 100) {
+    clearInterval(greenInt)
+    clearInterval(redInt)
+    gameOver = true;
+    clearInterval(intervalID)
+  }
+  if (redSpeed > -1) {
+    redSpeed--
+  }
+}, 100);
 
 const stopwatch = () => {
   const start = Date.now();
@@ -24,9 +59,6 @@ const displayTime = (elapsed) => {
   stopwatchDisplay.textContent = `${seconds}:${remainder}`
 }
 
-const stopTimer = () => {
-}
-
 const moveSnail = (snail) => {
   snail.nextElementSibling.classList.add("active");
   snail.classList.remove("active");
@@ -47,23 +79,21 @@ const handleKeyPress = (e) => {
   if (gameOver) {
     return
   }
-  const snail1 = document.querySelector("#player1-race > .active");
-  const snail2 = document.querySelector("#player2-race > .active");
+  // const snail1 = document.querySelector("#player1-race > .active");
+  // const snail2 = document.querySelector("#player2-race > .active");
 
   switch (e.code) {
     case "KeyP":
-      moveSnail(snail2);
-      winCheck(1);
+      // moveSnail(snail2);
+      // winCheck(1);
+      redSpeed = 5
       break;
     case "KeyQ":
-      moveSnail(snail1);
-      winCheck(-1);
+      // moveSnail(snail1);
+      // winCheck(-1);
+      greenSpeed = 5
       break;
   };
-}
-
-const displayCountdown = (input) => {
-  countdownDisplay.textContent = input
 }
 
 // event listeners
@@ -103,4 +133,5 @@ document.getElementById("reset-button").addEventListener("click", () => {
   });
   gameOver = false;
   displayTime(0);
+  green.value = 0
 });
