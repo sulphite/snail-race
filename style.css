@@ -141,9 +141,9 @@ button:active {
   width: 100vw;
   height: 100vh;
   text-align: center;
-  font-size: 10rem;
-  padding: 30vh;
-  opacity: 50%;
+  font-size: 12rem;
+  padding: 25vh;
+  opacity: 70%;
 }
 
 .fade {
@@ -160,6 +160,14 @@ button:active {
     opacity: 0%;
     font-size: 5rem;
   }
+}
+
+.red {
+  color:rgb(245, 49, 0);
+}
+
+.green {
+  color:rgb(0, 207, 79);
 }
 
 /* track */
