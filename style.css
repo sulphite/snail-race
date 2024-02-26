@@ -7,6 +7,7 @@ body {
   background-color: rgb(136, 136, 136);
   letter-spacing: 1px;
   font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 3em;
 }
 
 h1 {
@@ -207,11 +208,28 @@ input[type=range]::-ms-track {
 
 input[type=range]::-webkit-slider-runnable-track {
   width: 90%;
-  height: 30px;
+  height: 40px;
   /* background-color: #cccccc52; */
   background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
   border-radius: 5px;
 }
+
+input[type=range]::-moz-range-track {
+  width: 90%;
+  height: 40px;
+  /* background-color: #cccccc52; */
+  background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
+  border-radius: 5px;
+}
+
+input[type=range]::-ms-track {
+  width: 90%;
+  height: 40px;
+  /* background-color: #cccccc52; */
+  background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
+  border-radius: 5px;
+}
+
 
 /* Customize the appearance of the thumb */
 #green::-webkit-slider-thumb {
@@ -219,7 +237,6 @@ input[type=range]::-webkit-slider-runnable-track {
   appearance: none;
   width: 150px;
   height: 150px;
-  /* background-color: #333; */
   background-image: url("images/Untitled_Artwork.png");
   background-size: cover;
   border: none;
@@ -227,12 +244,63 @@ input[type=range]::-webkit-slider-runnable-track {
   margin-top: -100px; /* Adjust to center the thumb vertically */
 }
 
+
 #red::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 150px;
   height: 150px;
   background-image: url("images/Untitled_Artwork2.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+
+/* firefox */
+
+#green::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+#red::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+
+/* edge */
+
+#green::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+#red::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
   background-size: cover;
   border: none;
   cursor: pointer;
