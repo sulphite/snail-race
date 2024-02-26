@@ -61,10 +61,11 @@ button:active {
 } */
 .grid {
   width: 96vw;
-  margin: 2em auto;
+  margin: 100px auto 2em;
   text-align: center;
   display: grid;
   grid-template-columns: 10% auto;
+  row-gap: 100px;
 }
 
 .row {
@@ -175,7 +176,6 @@ button:active {
 
 .snail-progress {
   width: 90%;
-  margin: 50px auto;
 }
 
 /* remove default styling for range slider in all browsers */
