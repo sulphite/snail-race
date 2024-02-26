@@ -7,6 +7,7 @@ body {
   background-color: rgb(136, 136, 136);
   letter-spacing: 1px;
   font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 3em;
 }
 
 h1 {
@@ -60,10 +61,11 @@ button:active {
 } */
 .grid {
   width: 96vw;
-  margin: 2em auto;
+  margin: 100px auto 2em;
   text-align: center;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 10% auto;
+  row-gap: 100px;
 }
 
 .row {
@@ -141,9 +143,9 @@ button:active {
   width: 100vw;
   height: 100vh;
   text-align: center;
-  font-size: 10rem;
-  padding: 30vh;
-  opacity: 50%;
+  font-size: 12rem;
+  padding: 25vh;
+  opacity: 70%;
 }
 
 .fade {
@@ -160,4 +162,147 @@ button:active {
     opacity: 0%;
     font-size: 5rem;
   }
+}
+
+.red {
+  color:rgb(245, 49, 0);
+}
+
+.green {
+  color:rgb(0, 207, 79);
+}
+
+/* track */
+
+.snail-progress {
+  width: 90%;
+}
+
+/* remove default styling for range slider in all browsers */
+input[type=range] {
+  appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 90%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border */
+}
+
+input[type=range]::-ms-track {
+  width: 90%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+
+/* add my custom style for the slider */
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 90%;
+  height: 40px;
+  /* background-color: #cccccc52; */
+  background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
+  border-radius: 5px;
+}
+
+input[type=range]::-moz-range-track {
+  width: 90%;
+  height: 40px;
+  /* background-color: #cccccc52; */
+  background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
+  border-radius: 5px;
+}
+
+input[type=range]::-ms-track {
+  width: 90%;
+  height: 40px;
+  /* background-color: #cccccc52; */
+  background: linear-gradient(90deg, rgba(214,214,214,0.5) 0%, rgba(179,179,179,0) 100%);
+  border-radius: 5px;
+}
+
+
+/* Customize the appearance of the thumb */
+#green::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+
+
+#red::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork2.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+
+/* firefox */
+
+#green::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+#red::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+
+/* edge */
+
+#green::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
+}
+#red::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 150px;
+  background-image: url("images/Untitled_Artwork.png");
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  margin-top: -100px; /* Adjust to center the thumb vertically */
 }
